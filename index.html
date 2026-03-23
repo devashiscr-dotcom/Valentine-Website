@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kitu ❤️ Petishh</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Password Screen */
+#login {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ff4d6d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+/* Main Content */
+#main {
+    display: none;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    animation: fadeIn 2s;
+}
+
+.message {
+    font-size: 1.5em;
+    margin: 20px;
+    animation: fadeIn 3s;
+}
+
+/* Gallery */
+.gallery img {
+    width: 200px;
+    border-radius: 20px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* No Button */
+#noBtn {
+    position: absolute;
+}
+
+/* Hearts */
+.heart {
+    position: fixed;
+    color: red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Password Page -->
+<div id="login">
+    <h2>🔐 Only for Petishh 💖</h2>
+    <p>Enter our secret word 😘</p>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Unlock ❤️</button>
+</div>
+
+<!-- Main Page -->
+<div id="main">
+
+    <h1>Hi Petishh ❤️</h1>
+
+    <div class="message">
+        You are the source of my happiness, joy,<br>
+        the centre of my world and the whole of my heart 💖<br><br>
+        — Yours forever, Kitu 💘
+    </div>
+
+    <!-- Gallery -->
+    <h2>📸 Our Memories</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200">
+    </div>
+
+    <!-- Proposal -->
+    <h2>Will you be mine forever? 💍</h2>
+
+    <button onclick="yesClicked()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveButton()">No 😜</button>
+
+</div>
+
+<!-- Music -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+</audio>
+
+<script>
+function checkPassword() {
+    let pass = document.getElementById("password").value;
+
+    if(pass === "kitu") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main").style.display = "block";
+    } else {
+        alert("Wrong password 😢");
+    }
+}
+
+function yesClicked() {
+    alert("I LOVE YOU SO MUCH PETISHH ❤️😘");
+}
+
+function moveButton() {
+    let btn = document.getElementById("noBtn");
+    btn.style.top = Math.random() * window.innerHeight + "px";
+    btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+// Floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
